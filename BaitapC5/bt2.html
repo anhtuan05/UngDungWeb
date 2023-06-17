@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BT2</title>
+    <style>
+      .inline {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="javascript:;">
+      <div class="name inline">Từ ngày</div>
+      <input type="date" name="" id="contentInp1" class="inline" />
+      <div></div>
+      <div class="name inline">Đến ngày</div>
+      <input type="date" name="" id="contentInp2" class="inline" />
+      <button type="submit">Tính số ngày</button>
+    </form>
+    <div id="demo"></div>
+
+    <script src="./jQuery/jQ.js"></script>
+    <script>
+      const demo = $("#demo");
+      const from = $("#contentInp1");
+      const to = $("#contentInp2");
+      const btn = $("button");
+      btn.on("click", (d) => {
+        if (from.val() && to.val()) {
+          let day = new Date(new Date(to.val()) - new Date(from.val())).getTime() / 1000 / 60 / 60 / 24;
+          addCourse(`Số ngày là: ${day}`);
+        }
+      });
+      function addCourse(message) {
+        demo.html(message);
+      }
+    </script>
+  </body>
+</html>

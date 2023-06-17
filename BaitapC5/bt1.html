@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BT1</title>
+    <style>
+      .inline {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="javascript:;">
+      <div class="name inline">Tên môn học:</div>
+      <input type="text" name="" id="contentInp" class="inline" />
+      <ul id="demo"></ul>
+      <button type="submit">Thêm môn học</button>
+    </form>
+
+    <script src="./jQuery/jQ.js"></script>
+    <script>
+      const demo = $("#demo");
+      const inp = $("input");
+      const btn = $("button");
+      btn.on("click", (d) => {
+        let value = $.trim(inp.val());
+        if (value) addCourse(value);
+      });
+      function addCourse(message) {
+        $("<li>", {
+          text: message,
+        }).appendTo(demo);
+      }
+    </script>
+  </body>
+</html>
